@@ -1,0 +1,46 @@
+{
+    "extends": "next/core-web-vitals",
+    "plugins": [
+        "simple-import-sort",
+        "sort-keys-fix",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "simple-import-sort/imports": "error",
+        /* "simple-import-sort/exports": "error", */
+        "sort-keys": ["error", "asc", {"caseSensitive": true, "natural": false, "minKeys": 2}]
+    },
+    "overrides": [
+        {
+            "files": ["*.ts", "*.tsx"],
+            "rules": {
+                "simple-import-sort/imports": [
+                    "error",
+                    {
+                        "groups": [
+                            // Packages `react` related packages come first.
+                            ["^react", "^@?\\w"],
+                            // Internal packages
+                            ["^(@|components)(/.*|$)"],
+                            // Side effect imports
+                            ["^\\u0000"],
+                            // Parent imports. Put `..` last.
+                            ["¨^\\.\\(?!/?$)", "^\\.\\./?$"],
+                            // other relative imports. Put same-folder imports and `.` last
+                            ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+                            // Style imports
+                            ["^.+\\.?(css)$"]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "files": ["*.ts", "*.tsx"],
+            "rules": {
+                "sort-keys-fix/sort-keys-fix": "warn",
+                "@typescript-eslint/no-unused-vars": "warn"
+            }
+        }
+    ]
+}
