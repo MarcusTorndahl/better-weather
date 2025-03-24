@@ -2,25 +2,25 @@ import { format } from "date-fns";
 import Image from "next/image";
 
 import { Card, CardContent } from "@/components/ui/Card";
-import { DailyForecastData } from "@/entities/WeatherData";
+import { HourlyForecastData } from "@/entities/WeatherData";
 import { formatTemperature } from "@/utils/formatting";
 import { getConditionIcon } from "@/utils/functions";
 
-interface DailyForecastProps {
-  dailyForecastData: DailyForecastData[];
+interface HourlyForecastProps {
+  hourlyForecastData: HourlyForecastData[];
 }
 
-export default function DailyForecast({
-  dailyForecastData,
-}: DailyForecastProps) {
+export default function HourlyForecast({
+  hourlyForecastData,
+}: HourlyForecastProps) {
   return (
     <Card>
-      <CardContent className="flex flex-col items-start justify-center">
-        {dailyForecastData.map((forecast) => {
+      <CardContent className="flex items-center justify-center">
+        {hourlyForecastData.map((forecast) => {
           return (
             <div
               key={format(forecast.date, "yyyy-MM-dd")}
-              className="flex flex-row items-center px-2"
+              className="flex flex-col items-center px-2"
             >
               <div>
                 <Image

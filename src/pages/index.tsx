@@ -1,13 +1,17 @@
 import { devWeatherData as weatherData } from "@/entities/WeatherData";
+import CurrentWeatherCard from "@/page-components/CurrentWeatherCard/CurrentWeatherCard";
 import DailyForecast from "@/page-components/DailyForecast/DailyForecast";
-import WeatherDataCard from "@/page-components/WeatherDataCard/WeatherDataCard";
+import HourlyForecast from "@/page-components/HourlyForecast/HourlyForecast";
 
 export default function Home() {
   return (
     <main>
       <div className="flex flex-col items-center justify-center">
         <div className="mb-2">
-          <WeatherDataCard weatherData={weatherData} />
+          <CurrentWeatherCard weatherData={weatherData} />
+        </div>
+        <div className="mb-2">
+          <HourlyForecast hourlyForecastData={weatherData.hourlyForecastData} />
         </div>
         <div>
           <DailyForecast dailyForecastData={weatherData.dailyForecastData} />
