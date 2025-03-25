@@ -1,7 +1,7 @@
+import CurrentWeatherCard from "@/components/CurrentWeatherCard";
+import DailyForecast from "@/components/DailyForecast";
+import HourlyForecast from "@/components/HourlyForecast";
 import { devWeatherData as weatherData } from "@/entities/WeatherData";
-import CurrentWeatherCard from "@/page-components/CurrentWeatherCard/CurrentWeatherCard";
-import DailyForecast from "@/page-components/DailyForecast/DailyForecast";
-import HourlyForecast from "@/page-components/HourlyForecast/HourlyForecast";
 
 export default function Home() {
   return (
